@@ -1,0 +1,32 @@
+DOCUMENT
+|-- HEADER
+|   |-- TITLE "Latch"
+|   |-- SUMMARY "Sample and hold"
+|   |-- RELATED
+|   |   `-- STRING "Classes/Gate"
+|   `-- CATEGORIES
+|       `-- STRING "UGens>Triggers"
+`-- BODY
+    |-- DESCRIPTION
+    |   `-- PROSE
+    |       `-- TEXT "Holds input signal value when triggered. Latch will output 0 until it receives its first trigger."
+    |-- CLASSMETHODS
+    |   `-- CMETHOD
+    |       |-- METHODNAMES
+    |       |   |-- STRING "ar"
+    |       |   `-- STRING "kr"
+    |       `-- METHODBODY
+    |           |-- PROSE
+    |           `-- ARGUMENTS
+    |               |-- ARGUMENT "in"
+    |               |   `-- PROSE
+    |               |       `-- TEXT "The input signal."
+    |               `-- ARGUMENT "trig"
+    |                   `-- PROSE
+    |                       `-- TEXT "Trigger. Trigger can be any signal. A trigger happens when the signal changes from non-positive to positive."
+    `-- EXAMPLES
+        |-- CODEBLOCK "{ Blip.ar(Latch.ar(WhiteNoise.ar, Impulse.ar(9)) * 400 + 500, 4, 0.2) }.play;"
+        |-- PROSE
+        |   `-- TEXT "The above is just meant as example. LFNoise0 is a faster way to generate random steps:"
+        |-- CODEBLOCK "{ Blip.ar(LFNoise0.kr(9, 400, 500), 4, 0.2) }.play;"
+        `-- PROSE

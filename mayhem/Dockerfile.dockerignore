@@ -1,0 +1,4 @@
+# Build context for mayhem/Dockerfile: keep everything (incl. .git) except local build trees.
+build-fuzz
+build-tests
+ctrf-report.json

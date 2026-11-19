@@ -1,0 +1,9 @@
+project: savantenvs/supercollider
+target: scsynth_synthdef_fuzzer
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/scsynth_synthdef_fuzzer/testsuite
+cmds:
+  - cmd: /mayhem/scsynth_synthdef_fuzzer
+    libfuzzer: true
+    timeout: 10
