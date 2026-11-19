@@ -1,0 +1,12 @@
+project: savantenvs/supercollider
+target: sclang_compile_fuzzer
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/sclang_compile_fuzzer/testsuite
+cmds:
+  - cmd: /mayhem/sclang_compile_fuzzer
+    libfuzzer: true
+    # Start-up (LLVMFuzzerInitialize: compiling SCClassLibrary and running Process.startup under
+    # ASan+UBSan) takes ~5.5 s per process on a fast host before the first input; Mayhem's
+    # coverage collection pays it for every test case, so 10 s timed out all of them (0 edges).
+    timeout: 60
